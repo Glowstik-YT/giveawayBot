@@ -2,7 +2,6 @@ import nextcord
 from nextcord.ext import commands, tasks, application_checks
 from nextcord.abc import GuildChannel
 from nextcord import Interaction, ChannelType, SlashOption
-from config import TESTING_GUILD_ID
 import asyncio
 import humanfriendly
 import time as pyTime
@@ -101,7 +100,7 @@ class Giveaway(commands.Cog):
         self.giveawayCheck.start()
         print("Giveaway Loop: Online")
 
-    @nextcord.slash_command(name="ping", description="Check the bots ping", guild_ids=[794739329956053063])
+    @nextcord.slash_command(name="ping", description="Check the bots ping")
     async def ping(self, interaction: Interaction):
         em = nextcord.Embed(title="Bots Ping")
         em.add_field(
@@ -112,7 +111,7 @@ class Giveaway(commands.Cog):
         )
         await interaction.response.send_message(embed=em)
     
-    @nextcord.slash_command(name="giveaway", description="Giveaway Mast Command [No Function]", guild_ids=[794739329956053063])
+    @nextcord.slash_command(name="giveaway", description="Giveaway Mast Command [No Function]")
     async def giveaway(self, interaction: Interaction):
         return
     
