@@ -2,7 +2,7 @@ import nextcord
 from nextcord.ext import commands, tasks
 from nextcord.abc import GuildChannel
 from nextcord import Interaction, ChannelType
-from config import CONFIGTOKEN, PREFIX, OWNER
+from config import TOKEN, PREFIX, OWNER
 import os
 import aiosqlite
 
@@ -80,4 +80,4 @@ async def on_application_command_error(ctx, error):
             await ctx.send(embed=em, delete_after=30)
             return
 
-bot.run(os.getenv(TOKEN)) #replace this with bot.run(CONFIGTOKEN)
+bot.run(TOKEN)
