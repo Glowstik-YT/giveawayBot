@@ -80,4 +80,4 @@ async def on_application_command_error(ctx, error):
             await ctx.send(embed=em, delete_after=30)
             return
 
-bot.run(TOKEN)
+bot.run(${{TOKEN}}) #replace this with bot.run(TOKEN) if your using another host besides railway
