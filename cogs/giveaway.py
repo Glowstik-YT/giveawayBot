@@ -75,13 +75,13 @@ class Giveaway(commands.Cog):
                                     if winner is not None:
                                         em = nextcord.Embed(title="Giveaway Results", description=f"CONGRATS `{', '.join(winners)}` have/has won the giveaway for `{prize}` :tada:")
                                         await channel.send(embed=em)
-                                        await cursor.execute("UPDATE giveaways SET finished = ? WHERE guild = ? AND prize = ? AND message = ?", (True, guild, prize, message))
+                                        await cursor.execute("UPDATE giveaways SET finished = ? WHERE guild = ? AND prize = ? AND message = ?", (True, guild.id, prize, message))
                                         msg = await channel.fetch_message(message)
                                         newEm = nextcord.Embed(title="Giveaway Ended", description=f"`{', '.join(winners)}` have/has won `{prize}` :tada: :tada: :tada:", color=nextcord.Color.blurple())
                                         newEm.set_footer(text=f"Participants: {len(participants)}")
                                         await msg.edit(embed=newEm)
                                 else:
-                                    await cursor.execute("UPDATE giveaways SET finished = ? WHERE guild = ? AND prize = ? AND message = ?", (True, guild, prize, message))
+                                    await cursor.execute("UPDATE giveaways SET finished = ? WHERE guild = ? AND prize = ? AND message = ?", (True, guild.id, prize, message))
                                     msg = await channel.fetch_message(message)
                                     newEm = nextcord.Embed(title=f"{prize} Giveaway Ended", description=f"No one joined this giveaway <:cri:796075215741255691>", color=nextcord.Color.blurple())
                                     await msg.edit(embed=newEm)
